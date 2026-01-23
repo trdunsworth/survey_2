@@ -1,0 +1,46 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Ensure dropdowns can appear above app container */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#main-content {
+  flex: 1;
+  /* Allow dropdown popups to overflow */
+  overflow: visible;
+}
+
+/* Ensure proper focus management */
+#main-content:focus {
+  outline: none;
+}
+
+/* Responsive container adjustments */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+/* Print styles */
+@media print {
+  .site-header,
+  .site-footer,
+  .skip-link {
+    display: none;
+  }
+
+  .app {
+    background: white;
+    color: black;
+  }
+}

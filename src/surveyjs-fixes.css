@@ -1,0 +1,71 @@
+/* SurveyJS Dropdown Fixes */
+/* Ensure all dropdown-related elements are clickable and visible */
+
+/* Fix for dropdown wrapper */
+.sd-question--dropdown,
+.sd-dropdown {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Fix for dropdown popup container */
+.sv-popup,
+.sv-popup__container {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+/* Fix for dropdown list */
+.sv-list,
+.sv-list__container {
+  position: absolute !important;
+  z-index: 10000 !important;
+  background: white !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+}
+
+/* Ensure dropdown trigger is clickable */
+.sd-dropdown__value,
+.sd-dropdown__filter-string-input {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Fix for native select fallback */
+select.sd-input.sd-dropdown {
+  appearance: auto !important;
+  -webkit-appearance: menulist !important;
+  -moz-appearance: menulist !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Ensure dropdown items are clickable */
+.sv-list__item {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Fix dropdown positioning */
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure survey container doesn't clip dropdowns */
+.sd-root-modern,
+.sd-body,
+.sd-page {
+  overflow: visible !important;
+}
+
+/* Fix for any parent containers */
+.survey-container,
+.survey-page,
+#main-content,
+.container {
+  overflow: visible !important;
+}

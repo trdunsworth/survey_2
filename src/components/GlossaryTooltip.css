@@ -1,0 +1,53 @@
+.glossary-term {
+  color: var(--color-primary);
+  text-decoration: underline dotted;
+  cursor: help;
+  position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  border-bottom: 2px dotted var(--color-primary);
+  transition: all var(--transition-base);
+  display: inline;
+}
+
+.glossary-term:hover,
+.glossary-term:focus {
+  color: var(--color-primary-dark);
+  border-bottom-color: var(--color-primary-dark);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.glossary-tooltip {
+  position: absolute;
+  z-index: 1000;
+  background-color: var(--color-text);
+  color: var(--color-secondary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: var(--spacing-xs);
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.glossary-tooltip strong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary-light);
+}
+
+/* Ensure high contrast for WCAG compliance */
+@media (prefers-contrast: high) {
+  .glossary-term {
+    border-bottom-width: 3px;
+  }
+  
+  .glossary-tooltip {
+    border: 2px solid var(--color-secondary);
+  }
+}
