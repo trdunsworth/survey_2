@@ -39,6 +39,7 @@ const convertQuestion = (question: SurveyQuestion): SurveyJSQuestion => {
   const baseQuestion: SurveyJSQuestion = {
     name: `q_${question.id}`,
     title: question.text,
+    description: question.description,
     type: getSurveyJSType(question.type),
   };
 
@@ -87,7 +88,7 @@ const convertQuestion = (question: SurveyQuestion): SurveyJSQuestion => {
 const getSurveyJSType = (type: SurveyQuestion['type']): string => {
   const typeMap: Record<string, string> = {
     info: 'html',
-    select: 'dropdown', 
+    select: 'dropdown',
     radio: 'radiogroup',
     checkbox: 'checkbox',
     text: 'text',

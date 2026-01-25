@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useMemo } from 'react';
-import { Model, settings } from 'survey-core';
+import { Model } from 'survey-core';
 import { Survey } from 'survey-react-ui';
 import 'survey-core/defaultV2.min.css';
 import surveyDataJson from '../../survey_data.json';
@@ -25,9 +25,9 @@ export const SurveyPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const surveyData = surveyDataJson as SurveyData;
-  
+
   // Memoize sections to prevent infinite loop
-  const sections = useMemo(() => groupSurveysByCategory(surveyData), []);
+  const sections = useMemo(() => groupSurveysByCategory(surveyData), [surveyData]);
 
   useEffect(() => {
     if (!sectionId) {
@@ -46,7 +46,7 @@ export const SurveyPage = () => {
     // Convert to SurveyJS format
     const sectionIndex = sections.indexOf(section);
     const surveyJson = convertToSurveyJS(section, sectionIndex);
-    
+
     // Debug: Log the survey JSON to console
     console.log('Survey JSON:', JSON.stringify(surveyJson, null, 2));
 
@@ -109,7 +109,7 @@ export const SurveyPage = () => {
 
     setSurveyModel(model);
     setIsLoading(false);
-  }, [sectionId, navigate]);
+  }, [sectionId, navigate, sections]);
 
   if (isLoading) {
     return (

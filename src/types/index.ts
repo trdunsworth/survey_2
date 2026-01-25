@@ -2,6 +2,7 @@
 export interface SurveyQuestion {
   id: number | string;
   text: string;
+  description?: string;
   options: string[];
   type: 'info' | 'select' | 'radio' | 'checkbox' | 'text' | 'number' | 'agencies-with-count';
   showIf?: {
@@ -48,12 +49,13 @@ export interface SurveyResult {
 export interface SurveyJSQuestion {
   name: string;
   title: string;
+  description?: string;
   type: string;
   choices?: string[] | { value: string; text: string }[];
   inputType?: string;
   isRequired?: boolean;
   visibleIf?: string;
-  columns?: Array<{ name: string; title: string }>;
+  columns?: Array<{ name: string; title: string; cellType?: string; inputType?: string }>;
   rows?: string[];
 }
 
