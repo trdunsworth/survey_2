@@ -32,16 +32,11 @@ export const LandingPage = () => {
           <div className="intro-content">
             <h2 id="intro-title">Your Voice Matters</h2>
             <p>
-              Thank you for participating in the NENA 2024 PSAP Survey. We know that your time
-              is valuable and we appreciate you sharing your data with us. The information you
-              share will help NENA better understand staffing and call processing realities
-              throughout the industry and support meaningful solutions, advocacy, and future
-              planning for the 9-1-1 community.
+              Thank you for your time and participation in the 2026 NENA PSAP Survey. We know that your time is valuable and we appreciate you sharing this data with us. The data collected in this version of the survey will be used to support two working groups. The Call Processing working group will use this data to support the development of their stadnards. The Staffing Guidelines working group will use this data to have the data to start creating a new staffing guidelines recommendation. Due to the number of questions that were suggested between the working groups, the overall process has been split into several surveys to make them easier and quicker to complete. Each survey is intended to take about 15 to 20 minutes to complete. At the bottom of the page, you will find a session ID. You can use this to access the individual surveys and tie the results together to build individual profiles for a center while preserving anonymity.
             </p>
             <p>
               The survey consists of <strong>{surveySections.length} sections</strong> with a
-              total of approximately 30-45 minutes to complete. Your participation makes a
-              difference.
+              total of approximately 60-90 minutes to complete all of the surveys. The data we would like to collect to complete this survey can be found in several places in your PSAP. The demographic information may come from your governing organization, the call volumes may be found in your call handling software, the radio information will come from that software and the generated call data can likely be found in your CAD system.
             </p>
           </div>
         </div>

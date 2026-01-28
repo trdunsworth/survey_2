@@ -1,0 +1,241 @@
+.survey-closing-page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.survey-closing-page .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.closing-content {
+  background: var(--surface-bg, #ffffff);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: var(--success-color, #28a745);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.closing-content h1 {
+  color: var(--primary-color, #0066cc);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.closing-message {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.closing-message p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-color, #333333);
+}
+
+.next-steps {
+  background: var(--info-bg, #f0f7ff);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.next-steps h2 {
+  color: var(--primary-color, #0066cc);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.next-steps p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-color, #333333);
+}
+
+.data-reminder {
+  background: var(--warning-bg, #fff3cd);
+  border-left: 4px solid var(--warning-color, #ffc107);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.data-reminder h3 {
+  color: var(--warning-dark, #856404);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.data-reminder p {
+  color: var(--warning-dark, #856404);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.button-primary {
+  background-color: var(--primary-color, #0066cc);
+  color: white;
+}
+
+.button-primary:hover,
+.button-primary:focus {
+  background-color: var(--primary-hover, #0052a3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.3);
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: var(--primary-color, #0066cc);
+  border-color: var(--primary-color, #0066cc);
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+  background-color: var(--primary-color, #0066cc);
+  color: white;
+}
+
+.button:focus {
+  outline: 3px solid var(--focus-outline, #ffd700);
+  outline-offset: 2px;
+}
+
+.thank-you-note {
+  padding-top: 2rem;
+  border-top: 2px solid var(--border-color, #e0e0e0);
+}
+
+.thank-you-note p {
+  font-size: 1.1rem;
+  color: var(--primary-color, #0066cc);
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .closing-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .closing-content h1 {
+    font-size: 2rem;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 2.5rem;
+  }
+
+  .closing-message p,
+  .next-steps p {
+    font-size: 1rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .closing-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .closing-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .next-steps,
+  .data-reminder {
+    padding: 1.25rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .closing-content {
+    border: 3px solid currentColor;
+  }
+
+  .success-icon {
+    border: 3px solid white;
+  }
+
+  .button {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .button:hover,
+  .button:focus {
+    transform: none;
+  }
+
+  .button {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .survey-closing-page {
+    background: white;
+  }
+
+  .action-buttons {
+    display: none;
+  }
+}

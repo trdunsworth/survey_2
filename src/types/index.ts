@@ -7,7 +7,9 @@ export interface SurveyQuestion {
   type: 'info' | 'select' | 'radio' | 'checkbox' | 'text' | 'number' | 'agencies-with-count';
   showIf?: {
     questionId: number | string;
-    anyOf: string[];
+    anyOf?: string[];
+    allOf?: string[];
+    noneOf?: string[];
   };
 }
 

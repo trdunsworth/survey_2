@@ -6,6 +6,7 @@ import type {
   SurveyJSPage,
   SurveyJSQuestion,
 } from '../types';
+import { evaluateShowCondition, validateConditionalLogic } from './conditionalLogic';
 
 /**
  * Convert custom survey format to SurveyJS format
@@ -14,6 +15,12 @@ export const convertToSurveyJS = (
   section: SurveySection,
   sectionIndex: number
 ): SurveyJSModel => {
+  // Validate conditional logic before converting
+  const validationErrors = validateConditionalLogic(section.questions);
+  if (validationErrors.length > 0) {
+    console.warn('Survey conditional logic validation warnings:', validationErrors);
+  }
+
   const pages: SurveyJSPage[] = [
     {
       name: `page_${sectionIndex}`,
@@ -101,14 +108,35 @@ const getSurveyJSType = (type: SurveyQuestion['type']): string => {
 
 /**
  * Create visibility condition for SurveyJS
+ * Converts our conditional format to SurveyJS visibleIf syntax
  */
 const createVisibilityCondition = (showIf: SurveyQuestion['showIf']): string => {
   if (!showIf) return '';
 
-  const { questionId, anyOf } = showIf;
-  const conditions = anyOf.map((value) => `{q_${questionId}} = '${value}'`);
+  const { questionId, anyOf, allOf, noneOf } = showIf;
+  const qName = `q_${questionId}`;
 
-  return conditions.join(' or ');
+  // Handle anyOf (at least one value matches)
+  if (anyOf && anyOf.length > 0) {
+    const conditions = anyOf.map((value) => `{${qName}} = '${value}'`);
+    return conditions.join(' or ');
+  }
+
+  // Handle allOf (all values must match) - only applicable for checkbox arrays
+  if (allOf && allOf.length > 0) {
+    const conditions = allOf.map((value) => `{${qName}} contains '${value}'`);
+    return conditions.join(' and ');
+  }
+
+  // Handle noneOf (none of the values should match)
+  if (noneOf && noneOf.length > 0) {
+    const conditions = noneOf.map(
+      (value) => `{${qName}} != '${value}'`
+    );
+    return conditions.join(' and ');
+  }
+
+  return '';
 };
 
 /**
