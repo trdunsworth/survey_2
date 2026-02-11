@@ -127,6 +127,44 @@
                         "Over 1,000,000"
                     ],
                     "type": "select"
+                },
+                {
+                    "id": 4,
+                    "text": "What are the most common factors contibuting to the population variation?",
+                    "description": "<i>This question will assist in understanding the factors that drive temporary population changes. Understanding these factors will help in developing staffing guidelines that can better accommodate these changes. This information will likely be sourced from your governing body</i>",
+                    "options" : [
+                        "Daytime Increase (Worker Influx)",
+                        "Seasonal Peaks",
+                        "Event Peaks",
+                        "None",
+                        "Other (Please Specify)"
+                    ],
+                    "type": "checkbox"
+                },
+                {
+                    "id": 5,
+                    "text": "Please select the PSAP classification.",
+                    "description": "<i>This questions will assist in understanding the distribtion of Primary versus Secondary PSAPs. Staffing and processing guidelines may differ between these two classifications.</i>",
+                    "options": [
+                        "Primary",
+                        "Secondary"
+                    ],
+                    "type": "radio"
+                },
+                {
+                    "id": 6,
+                    "text": "What services does your PSAP provide? (Select all that apply)",
+                    "description": "<i>This information will assist in gathering better information as to what base services are provided by centers.</i>",
+                    "options": [
+                        "Call Taking",
+                        "Police Dispatching",
+                        "Fire Dispatching",
+                        "EMS Dispatching",
+                        "Walk Up",
+                        "SMS/Text to 911",
+                        "TDD/TTY"
+                    ],
+                    "type": "checkbox"
                 }
             ]
         }
